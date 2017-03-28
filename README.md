@@ -1,4 +1,4 @@
-#敏感词过滤系统
+##敏感词过滤系统
 
 ### author:kevin Luan
 	email: kevin_Luan@126.com
@@ -24,7 +24,9 @@
     System.out.println(filterService.filter(str));
 
 ###Importing into eclipse
+
 	mvn eclipse:eclipse
 	
+
 ####问题反馈 to mail: kevin_Luan@126.com
     

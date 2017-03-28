@@ -1,9 +1,12 @@
+
 ##敏感词过滤系统
 
 ### author:kevin Luan
+
 	email: kevin_Luan@126.com
 
 ### 打包成JAR 包命令
+
 	安装包本地仓库
 	mvn clean compile install -Dmaven.test.skip=true
 
@@ -28,5 +31,7 @@
 	mvn eclipse:eclipse
 	
 
-####问题反馈 to mail: kevin_Luan@126.com
+####问题反馈
+	
+	to mail: kevin_Luan@126.com
     

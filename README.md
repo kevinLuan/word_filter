@@ -8,6 +8,7 @@
 	mvn clean compile install -Dmaven.test.skip=true
 
 ###Running the samples
+	
 	String[] keywords =new String[] { "奸","强奸", "性感", "性欲", "性爱", "欲望", "激情", "狂", "联系", "色诱", "评", "骚"};
 	//初始化敏感词数据结构
 	TreeNode root= TreeNode.markNode(keywords);

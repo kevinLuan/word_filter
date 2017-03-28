@@ -1,12 +1,12 @@
+
 ###敏感词过滤系统
 
 ####author:kevin Luan
-	email: kevin_Luan@126.com
+    email: kevin_Luan@126.com
 
 ####打包成JAR 包命令
-
-	安装包本地仓库
-	mvn clean compile install -Dmaven.test.skip=true
+    安装包本地仓库
+    mvn clean compile install -Dmaven.test.skip=true
 
 ####Running the samples
 
@@ -26,10 +26,9 @@
 
 
 ####Importing into eclipse
+    mvn eclipse:eclipse
 	
-	mvn eclipse:eclipse
-	
-####问题反馈 
+####问题反馈
     to mail: kevin_Luan@126.com
     
 

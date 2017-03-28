@@ -1,8 +1,7 @@
 
 ###敏感词过滤系统
 
-### author:kevin Luan
-
+###author:kevin Luan
 	email: kevin_Luan@126.com
 
 ### 打包成JAR 包命令

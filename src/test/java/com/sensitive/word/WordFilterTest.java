@@ -44,7 +44,8 @@ public class WordFilterTest {
         new String[] {"性欲","导引到大脑","体力", "调情高手", "宜春香质", "肉蒲团", "伯爵夫人", "克里斯蒂昂巧妙", "如意君传", "维奥莱特罗曼史", "黄色小说", "雕塑家", "大仲马",
             "小仲马", "同性恋", "性器官", "肉体", "柏拉图", "多粗", "性交", "做爱", "主义", "享", "享受", "仅", "公投", "判断", "合", "培训", "大量", "奸",
             "强奸", "性感", "性欲", "性爱", "欲望", "激情", "狂", "联系", "色诱", "评", "骚"};
-    WordFilter filterService = new WordFilter(keywords);
+    TreeNode root= TreeNode.markNode(keywords);
+    WordFilter filterService = new WordFilter(root);
     long start = System.currentTimeMillis();
     for (int i = 0; i < 100000; i++) {
       filterService.filter(content);

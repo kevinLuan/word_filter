@@ -4,23 +4,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TreeNode {
-  public TreeNode(char chat) {
-    this.chat = chat;
+  private TreeNode() {
   }
 
-  public transient char chat;
-  public String word;
+  /**
+   * 敏感词
+   */
+  private String word;
+  /**
+   * 是否结束
+   */
   public boolean isEnd = false;
-  public Map<Character, Map<Character, TreeNode>> tree = new HashMap<Character, Map<Character, TreeNode>>();
+  public Map<Character, TreeNode> tree = new HashMap<Character,TreeNode>();
 
-  public static TreeNode initNode(String[] keys) {
-    TreeNode root = new TreeNode('-');
+  /**
+   * 初始化数据结构
+   * @param keys 敏感词库
+   * @return
+   */
+  public static TreeNode markNode(String[] keys) {
+    final TreeNode root = new TreeNode();
     for (int i = 0; i < keys.length; i++) {
-      String key = keys[i];
-      char[] chats = key.toCharArray();
-      TreeNode rootNode = root;
+      String word = keys[i];
+      char[] chats = word.toCharArray();
+      TreeNode thisNode = root;
       for (int j = 0; j < chats.length; j++) {
-        rootNode = insert(chats.length == j + 1, rootNode, chats[j], key);
+        boolean isEnd=chats.length == j + 1;
+        thisNode = insert(isEnd, thisNode, chats[j], word);
       }
     }
     return root;
@@ -28,28 +38,33 @@ public class TreeNode {
 
   private static TreeNode insert(boolean isEnd, TreeNode rootNode, char chat, String word) {
     if (isEnd) {
-      TreeNode end = new TreeNode(chat);
-      end.isEnd = true;
-      Map<Character, TreeNode> map = rootNode.tree.get(chat);
-      if (map == null) {
-        map = new HashMap<Character, TreeNode>();
+      TreeNode node = rootNode.tree.get(chat);
+      if (node == null) {
+        node = new TreeNode();
       }
-      end.word = word;
-      map.put(end.chat, end);
-      rootNode.tree.put(chat, map);
-      return end;
+      node.isEnd=true;
+      node.word=word;
+      rootNode.tree.put(chat,node);
+      return node;
     } else {
-      Map<Character, TreeNode> map = rootNode.tree.get(chat);
-      if (map == null) {
-        map = new HashMap<Character, TreeNode>();
-        TreeNode node = new TreeNode(chat);
-        map.put(node.chat, node);
-        rootNode.tree.put(chat, map);
+      TreeNode node = rootNode.tree.get(chat);
+      if (node == null) {
+        node = new TreeNode();
+        rootNode.tree.put(chat, node);
         return node;
       } else {
-        return map.get(chat);
+        return rootNode.tree.get(chat);
       }
 
     }
   }
+
+    public boolean isOver() {
+        return tree.size()==0;
+    }
+
+    public String getWord(){
+      return this.word;
+    }
+
 }

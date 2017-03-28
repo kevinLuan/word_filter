@@ -1,4 +1,6 @@
 
+### SDK for Java
+
 ###敏感词过滤系统
 
 ####author:kevin Luan
@@ -8,7 +10,7 @@
     安装包本地仓库
     mvn clean compile install -Dmaven.test.skip=true
 
-####Running the samples
+#### [Documentation]Running the samples
 
 	String[] keywords =new String[] { "奸","强奸", "性感", "性欲", "性爱", "欲望", "激情", "狂", "联系", "色诱", "评", "骚"};
 	//初始化敏感词数据结构
